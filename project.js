@@ -61,7 +61,7 @@ function upload(e){ //Called when user uploads files.
     counter=0;
     var files=e.target.files;
     iterUpload(files,0);
-    document.getElementById("upload").value="";
+    document.getElementById("pUpload").value="";
 }
 
 function iterUpload(files,i){ //Iteratively uploads each file one by one, with a 500ms delay between.
@@ -103,27 +103,27 @@ function render(updating){ //Renders the list of files in the current project.
     localStorage.setItem(currentProject+"@numfiles",currentFiles.length);
     renderDetails();
     currentFiles.sort(alphabetical);
-    clear("file");
+    clear("pFile");
     for(var i=0;i<currentFiles.length;i++){   
-        var file=create("button","file")
+        var file=create("button","pFile")
         file.style.top=(7+10*i)+"%";
         file.setAttribute("onclick","openViewContainer('"+getFileName(currentFiles[i])+"')");
-        var name=create("div","fileName");
+        var name=create("div","pFileName");
         name.innerHTML=getFileName(currentFiles[i]);
-        var version=create("div","fileVersion");
+        var version=create("div","pFileVersion");
         version.innerHTML=getFileVersion(currentFiles[i]);
         file.appendChild(name);
         file.appendChild(version);
-        document.getElementById("fileContainer").appendChild(file);
+        document.getElementById("pFileContainer").appendChild(file);
     }
 }
 
 function renderDetails(){ //Updates project description visual.
-    document.getElementById("name").innerHTML=currentProject;
+    document.getElementById("pName").innerHTML=currentProject;
     var desc=localStorage.getItem(currentProject+"@desc");
     var numFiles=localStorage.getItem(currentProject+"@numfiles");
     var update=localStorage.getItem(currentProject+"@update");
-    document.getElementById("desc").innerHTML=desc+"<br><br>⏰ Last Updated: "+update+"<br><br>#️⃣ Number of Files: "+numFiles+"<br><br><button id='deleteProject' onclick='deleteProject()'>Delete Project</button>";
+    document.getElementById("pDesc").innerHTML=desc+"<br><br>⏰ Last Updated: "+update+"<br><br>#️⃣ Number of Files: "+numFiles+"<br><br><button id='pDeleteProject' onclick='deleteProject()'>Delete Project</button>";
 }
 
 function alphabetical(a,b){ //Sorts the list of files alphabetically.
@@ -131,18 +131,18 @@ function alphabetical(a,b){ //Sorts the list of files alphabetically.
 }
 
 function openViewContainer(file,version){ //Renders the file viewer.
-    document.getElementById("viewContainer").style.display="block";
+    document.getElementById("pViewContainer").style.display="block";
     for(var i=0;i<currentFiles.length;i++){
         if(getFileName(currentFiles[i])==file){
-            document.getElementById("code").innerHTML="";
-            document.getElementById("codeHeader").innerHTML=getFileName(currentFiles[i]);
+            document.getElementById("pCode").innerHTML="";
+            document.getElementById("pCodeHeader").innerHTML=getFileName(currentFiles[i]);
             currentFile=currentFiles[i];
             var currentVersion = version==null ? getFileVersion(currentFiles[i]) : version;
-            clear("version");
+            clear("pVersion");
             var counter=0;
             for(var k=1.0;k<=getFileVersion(currentFiles[i])+0.05;k+=0.1){
                 k=(Math.round(k*10)/10);
-                var ver=create("button","version");
+                var ver=create("button","pVersion");
                 ver.style.top=(15+80*(k-1))+"%";
                 ver.innerHTML=k;
                 ver.setAttribute("onclick","openViewContainer('"+file+"',"+k+")");
@@ -152,10 +152,10 @@ function openViewContainer(file,version){ //Renders the file viewer.
                     ver.style.fontWeight="700";
                     var text=document.createTextNode(getFileContents(currentFiles[i])[counter+1]);
                     currentContents=getFileContents(currentFiles[i])[counter+1];
-                    document.getElementById("code").appendChild(text);
-                    document.getElementById("code").innerHTML+="<br> ";
+                    document.getElementById("pCode").appendChild(text);
+                    document.getElementById("pCode").innerHTML+="<br> ";
                 }
-                document.getElementById("versionContainer").appendChild(ver);
+                document.getElementById("pVersionContainer").appendChild(ver);
                 counter+=2;
             }  
             return;
@@ -164,7 +164,7 @@ function openViewContainer(file,version){ //Renders the file viewer.
 }
 
 function closeViewContainer(){ //Closes the file viewer.
-    document.getElementById("viewContainer").style.display="none";
+    document.getElementById("pViewContainer").style.display="none";
 }
 
 function deleteFile(){ //Deletes the file in the file viewer.
@@ -175,9 +175,9 @@ function deleteFile(){ //Deletes the file in the file viewer.
 
 function copyFile(){ //Copies the file in the file viewer to clipboard.
     navigator.clipboard.writeText(currentContents);
-    document.getElementById("copyButton").style.filter="brightness(80%)";
+    document.getElementById("pCopyButton").style.filter="brightness(80%)";
     setTimeout(() => {
-        document.getElementById("copyButton").style.filter="brightness(100%)";
+        document.getElementById("pCopyButton").style.filter="brightness(100%)";
     }, "500");
 }
 
@@ -194,5 +194,5 @@ function deleteProject(){ //Deletes the current project.
 //------------------------------------- RUN ON START ------------------------------------------
 
 document.title=currentProject;
-document.getElementById('upload').addEventListener('change',upload);
+document.getElementById('pUpload').addEventListener('change',upload);
 render();

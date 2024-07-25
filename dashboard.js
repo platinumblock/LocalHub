@@ -29,27 +29,27 @@ function render(){ //Renders list of projects.
         }
     }
     projects.sort(alphabetical);
-    clear("project");
+    clear("dProject");
     var finalY=0;
     for(var i=0;i<projects.length;i++){
-        var project=create("button","project");
+        var project=create("button","dProject");
         project.style.left=(15+(i%3)*25)+"%";
-        project.style.top=(30+parseInt(i/3)*30)+"%";
-        if(i==projects.length-1) finalY=(30+parseInt(i/3)*30);
+        project.style.top=(40+parseInt(i/3)*25)+"%";
+        if(i==projects.length-1) finalY=(40+parseInt(i/3)*25);
         project.setAttribute("onclick","enter('"+projects[i]+"')");
-        var projectName=create("div","projectName");
+        var projectName=create("div","dProjectName");
         projectName.innerHTML=projects[i];
-        var projectUpdate=create("div","projectUpdate");
+        var projectUpdate=create("div","dProjectUpdate");
         projectUpdate.innerHTML="⏰ "+localStorage.getItem(projects[i]+"@update");
-        var projectNumFiles=create("div","projectNumFiles");
+        var projectNumFiles=create("div","dProjectNumFiles");
         projectNumFiles.innerHTML=localStorage.getItem(projects[i]+"@numfiles")+" #️⃣";
         project.appendChild(projectName);
         project.appendChild(projectUpdate);
         project.appendChild(projectNumFiles);
-        document.getElementById("projectContainer").appendChild(project);
+        document.getElementById("dProjectContainer").appendChild(project);
     }
-    if(finalY<65) finalY=65;
-    document.getElementById("footer").style.top=(finalY+30)+"%";
+    if(finalY<75) document.getElementById("dFooter").style.top=(95)+"%";
+    document.getElementById("dFooter").style.top=(finalY+30)+"%";
 }
 
 function alphabetical(a,b){ //Sorts the list of projects alphabetically.
@@ -62,23 +62,23 @@ function enter(name){ //Opens a project that you clicked on.
 }
 
 function openCreate(){ //Opens create project interface.
-    document.getElementById("createPanel").style.display="block";
+    document.getElementById("dCreatePanel").style.display="block";
 }
 
 function closeCreate(){ //Closes create project interface.
-    document.getElementById("createPanel").style.display="none";
+    document.getElementById("dCreatePanel").style.display="none";
 }
 
 function createProject(){ //Creates a new project.
-    var name=document.getElementById("createName").value;
-    var desc=document.getElementById("createDescription").value;
+    var name=document.getElementById("dCreateName").value;
+    var desc=document.getElementById("dCreateDescription").value;
     localStorage.setItem(name+"@desc",desc);
     var date=new Date();
     var currentDate=(date.getMonth()+1)+"/"+date.getDate();
     localStorage.setItem(name+"@update",currentDate);
     localStorage.setItem(name+"@numfiles",0);
-    document.getElementById("createName").value="";
-    document.getElementById("createDescription").value="";
+    document.getElementById("dCreateName").value="";
+    document.getElementById("dCreateDescription").value="";
     closeCreate();
     render();
 }

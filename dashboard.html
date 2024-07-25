@@ -8,21 +8,22 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-	  <div id="header">
-        <a href="index.html" id="headerTitle">LocalHub</a>
-        <a href="dashboard.html" id="headerDashboard">Dashboard</a>
+	  <div id="aHeader">
+      <a href="index.html" id="aHeaderTitle">LocalHub</a>
+      <a href="dashboard.html" id="aHeaderDashboard">Dashboard</a>
     </div>
-    <div id="projectContainer"></div>
-    <div id="footer">Made with JS :)</div>
-    <button onclick="openCreate()" id="openCreate">+</button>
-    <div id="createPanel" style="display:none">
-      <button id="closeCreate" onclick="closeCreate()"></button>
-      <div id="createContainer">
-        <div id="label1">Project Name</div>
-        <input id="createName">
-        <div id="label2">Project Description</div>
-        <textarea id="createDescription"></textarea>
-        <button onclick="createProject()" id="createProject">Create!</button>
+    <div id="dDashboardHeader">Dashboard</div>
+    <div id="dProjectContainer"></div>
+    <div id="dFooter">LocalHub</div>
+    <button onclick="openCreate()" id="dOpenCreate">+</button>
+    <div id="dCreatePanel" style="display:none">
+      <button id="dCloseCreate" onclick="closeCreate()"></button>
+      <div id="dCreateContainer">
+        <div id="dLabel1">Project Name</div>
+        <input id="dCreateName">
+        <div id="dLabel2">Project Description</div>
+        <textarea id="dCreateDescription"></textarea>
+        <button onclick="createProject()" id="dCreateProject">Create!</button>
       </div>
     </div>
     <script src="dashboard.js"></script>
