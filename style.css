@@ -1,0 +1,515 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+body{
+    font-family: "Lexend Deca", sans-serif;
+}
+#download{
+    font-family: "Lexend Deca", sans-serif;
+    background-color:rgb(37, 198, 64);
+    color:white;
+    font-size:30px;
+    font-weight:700;
+    width:12%;
+    height:7%;
+    position:absolute;
+    left:19.5%;
+    top:21%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:15px;
+    border:none;
+    transition:0.1s all;
+}
+#download:hover{
+    transform:scale(1.05);
+    cursor:pointer;
+}
+#upload{
+    opacity:0;
+    z-index:999;
+    width:10%;
+    height:7%;
+    position:absolute;
+    left:55%;
+    top:21%;
+    cursor:pointer;
+}
+#styleUpload{
+    font-family: "Lexend Deca", sans-serif;
+    background-color:rgb(31, 135, 232);
+    color:white;
+    font-size:30px;
+    font-weight:700;
+    width:10%;
+    height:7%;
+    position:absolute;
+    left:55%;
+    top:21%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:15px;
+    transition:0.1s all;
+}
+#upload:hover + #styleUpload{
+    transform:scale(1.05);
+    cursor:pointer;
+}
+#name{
+    width:20%;
+    position:absolute;
+    left:70%;
+    height:7%;
+    top:22%;
+    border-bottom:4px solid black;
+    font-size:40px;
+    font-weight:700;
+}
+#desc{
+    width:20%;
+    position:absolute;
+    left:70%;
+    top:32%;
+    font-size:25px;
+}
+#fileContainer{
+    background-color:rgb(240,240,240);
+    position:absolute;
+    width:50%;
+    left:15%;
+    height:70%;
+    top:30%;
+    border-radius:20px 20px 0px 0px;
+}
+.file{
+    width:90%;
+    position:absolute;
+    left:5%;
+    height:8%;
+    border-radius:40px;
+    background-color:white;
+    border:1px solid rgba(50,50,50,0.1);
+    box-shadow:0px 0px 3px 1px rgb(230,230,230);
+    font-family: "Lexend Deca", sans-serif;
+    transition:0.1s all;
+}
+.file:hover{
+    cursor:pointer;
+    transform:scale(1.05);
+}
+.fileName{
+    position:absolute;
+    left:0%;
+    width:60%;
+    height:100%;
+    top:0%;
+    display:flex;
+    align-items:center;
+    padding-left:20px;
+    font-size:20px;
+    font-weight:500;
+}
+.fileVersion{
+    position:absolute;
+    left:90%;
+    width:10%;
+    height:100%;
+    top:0%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    font-weight:500;
+}
+#viewContainer{
+    width:100%;
+    height:100%;
+    position:absolute;
+    left:0%;
+    top:0%;
+    background-color:rgba(0,0,0,0.4);
+}
+#codeContainer{
+    width:50%;
+    height:80%;
+    position:absolute;
+    left:25%;
+    top:13%;
+    background-color:white;
+    padding-bottom:40px;
+    padding-right:100px;
+    overflow-y:scroll;
+    white-space: pre-wrap;
+    overflow-x:hidden;
+}
+#code{
+    position:absolute;
+    left:0%;
+    top:0%;
+    width:95%;
+    height:80%;
+    font-family: "Consolas", sans-serif;
+    white-space: pre-wrap;
+    padding-left:30px;
+    padding-top:30px;
+    padding-bottom:70px;
+}
+#closeViewContainer{
+    width:100%;
+    height:100%;
+    position:absolute;
+    left:0%;
+    top:0%;
+    opacity:0;
+}
+#versionContainer{
+    position:absolute;
+    left:15%;
+    top:13%;
+    width:10%;
+    height:calc(80% + 40px);
+    background-color:rgb(240,240,240);
+    border-radius:40px 0px 0px 40px;
+}
+#versionHeader{
+    width:100%;
+    text-align:center;
+    position:absolute;
+    left:0%;
+    top:5%;
+    font-size:27px;
+    font-weight:700;
+    text-decoration:underline;
+    text-underline-offset:10px;
+}
+.version{
+    width:70%;
+    position:absolute;
+    left:15%;
+    height:6%;
+    border-radius:40px;
+    background-color:white;
+    border:1px solid rgba(50,50,50,0.1);
+    box-shadow:0px 0px 3px 1px rgb(230,230,230);
+    font-family: "Lexend Deca", sans-serif;
+    font-size:22px;
+    font-weight:500;
+    transition:0.1s all;
+}
+.version:hover{
+    cursor:pointer;
+    transform:scale(1.05);
+}
+#codeHeader{
+    position:absolute;
+    left:25%;
+    top:7%;
+    height:6%;
+    width:calc(50% + 70px);
+    display:flex;
+    align-items:center;
+    padding-left:30px;
+    padding-top:3px;
+    font-size:22px;
+    font-weight:700;
+    background-color:rgb(240,240,240);
+    border-radius:40px 40px 0px 0px;
+}
+#deleteButton{
+    background-color:rgb(248, 42, 42);
+    color:white;
+    position:absolute;
+    width:6%;
+    height:3.5%;
+    font-size:16px;
+    font-weight:700;
+    border:none;
+    left:73%;
+    top:8.5%;
+    font-family: "Lexend Deca", sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:15px;
+    transition:0.1s all;
+    padding-bottom:2px;
+}
+#deleteButton:hover{
+    transform:scale(1.05);
+    cursor:pointer;
+}
+#copyButton{
+    background-color:rgb(37, 198, 64);;
+    color:white;
+    position:absolute;
+    width:6%;
+    height:3.5%;
+    font-size:16px;
+    font-weight:700;
+    border:none;
+    left:66.5%;
+    top:8.5%;
+    font-family: "Lexend Deca", sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:15px;
+    transition:0.1s all;
+    padding-bottom:3px;
+}
+#copyButton:hover{
+    transform:scale(1.05);
+    cursor:pointer;
+}
+#header{
+    position:absolute;
+    left:0%;
+    height:13%;
+    top:0%;
+    width:100%;
+    border-bottom:2px solid rgba(0,0,0,0.1);
+}
+.color{
+    
+}
+#headerTitle{
+    font-size:45px;
+    position:absolute;
+    left:4%;
+    top:25%;
+    text-decoration:none;
+    transition:0.1s all;
+    background: -webkit-linear-gradient(#1574e8, #26b8dd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#headerTitle:hover{
+    transform:scale(1.05);
+}
+#headerDashboard{
+    color:black;
+    font-size:35px;
+    position:absolute;
+    left:84%;
+    top:30%;
+    text-underline-offset:10px;
+    transition:0.1s all;
+}
+#headerDashboard:hover{
+    transform:scale(1.05);
+}
+.project{
+    position:absolute;
+    width:20%;
+    height:20%;
+    background-color:rgb(240,240,240);
+    border-radius:10px;
+    border:1px solid rgba(50,50,50,0.1);
+    box-shadow:0px 0px 3px 1px rgb(230,230,230);
+    font-family: "Lexend Deca", sans-serif;
+    transition:0.1s all;
+}
+.project:hover{
+    cursor:pointer;
+    transform:scale(1.05);
+}
+.projectName{
+    position:absolute;
+    left:5%;
+    top:20%;
+    text-align:center;
+    width:90%;
+    font-size:40px;
+    font-weight:700;
+    line-height:40px;
+}
+.projectUpdate{
+    position:absolute;
+    left:5%;
+    top:75%;
+    font-size:20px;
+}
+.projectNumFiles{
+    position:absolute;
+    left:81%;
+    top:75%;
+    font-size:20px;
+    text-align:right;
+}
+#openCreate{
+    background-color:rgb(31, 135, 232);
+    color:white;
+    border:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:fixed;
+    font-size:70px;
+    font-weight:800;
+    width:100px;
+    height:100px;
+    left:89%;
+    top:80%;
+    border-radius:50%;
+    transition:0.1s all;
+}
+#openCreate:hover{
+    transform:scale(1.05);
+    cursor:pointer;
+}
+#createPanel{
+    position:absolute;
+    left: 0%;
+    top:0%;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.4);
+}
+#closeCreate{
+    position:absolute;
+    left: 0%;
+    top:0%;
+    width:100%;
+    height:100%;
+    opacity:0;
+}
+#createContainer{
+    position:absolute;
+    left:35%;
+    width:30%;
+    height:70%;
+    top:15%;
+    background-color:white;
+    border-radius:40px;
+}
+#label1{
+    width:70%;
+    position:absolute;
+    left:15%;
+    top:11%;
+    font-size:25px;
+    font-weight:700;
+}
+#createName{
+    width:65%;
+    position:absolute;
+    left:15%;
+    top:18%;
+    font-size:20px;
+    height:7%;
+    background-color:rgb(240,240,240);
+    border:none;
+    padding-left:15px;
+    border-radius:10px;
+}
+#label2{
+    width:70%;
+    position:absolute;
+    left:15%;
+    top:33%;
+    font-size:25px;
+    font-weight:700;
+}
+#createDescription{
+    width:62.5%;
+    position:absolute;
+    left:15%;
+    top:40%;
+    font-size:20px;
+    height:30%;
+    background-color:rgb(240,240,240);
+    border:none;
+    padding:15px;
+    border-radius:10px;
+    resize:none;
+}
+textarea{
+    font-family: "Lexend Deca", sans-serif;
+    transition:0.1s all;
+}
+textarea:focus{
+    outline:none;
+    filter:brightness(96%);
+}
+input{
+    font-family: "Lexend Deca", sans-serif;
+    transition:0.1s all;
+}
+input:focus{
+    outline:none;
+    filter:brightness(96%);
+}
+#createProject{
+    background-color:rgb(31, 135, 232);
+    color:white;
+    border:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:absolute;
+    font-size:25px;
+    font-weight:800;
+    width:40%;
+    height:10%;
+    left:30%;
+    top:82%;
+    border-radius:20px;
+    transition:0.1s all;
+    font-family: "Lexend Deca", sans-serif;
+    transition:0.1s all;
+}
+#createProject:hover{
+    cursor:pointer;
+    transform:scale(1.05);
+}
+#deleteProject{
+    background-color:rgb(248, 42, 42);
+    color:white;
+    width:60%;
+    padding-top:10px;
+    padding-bottom:10px;
+    font-size:23px;
+    font-weight:700;
+    border:none;
+    font-family: "Lexend Deca", sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:15px;
+    transition:0.1s all;
+}
+#deleteProject:hover{
+    transform:scale(1.05);
+    cursor:pointer;
+}
+#footer{
+    position:absolute;
+    left:0%;
+    width:100%;
+    height:5%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color:rgb(240,240,240);
+    font-size:15px;
+}
+#backButton{
+    position:absolute;
+    left:15%;
+    width:60px;
+    height:60px;
+    top:21%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:45px;
+    text-decoration:none;
+    color:white;
+    background-color:rgb(31, 135, 232);
+    border-radius:50%;
+    transition:0.1s all;
+}
+#backButton:hover{
+    transform:scale(1.05);
+    cursor:pointer;
+}
