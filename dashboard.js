@@ -49,7 +49,7 @@ function render(){ //Renders list of projects.
         document.getElementById("dProjectContainer").appendChild(project);
     }
     if(finalY<75) document.getElementById("dFooter").style.top=(95)+"%";
-    document.getElementById("dFooter").style.top=(finalY+30)+"%";
+    else document.getElementById("dFooter").style.top=(finalY+30)+"%";
 }
 
 function alphabetical(a,b){ //Sorts the list of projects alphabetically.
