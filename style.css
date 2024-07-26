@@ -137,8 +137,9 @@ body{
     align-items:center;
     border-radius:20px;
     font-weight:700;
-    font-size:40px;
+    font-size:45px;
     transition:0.1s all;
+    box-shadow:0px 0px 3px 1px white;
 }
 #iExploreButtonBackground{ /*White background for explore button*/
     position:absolute;
