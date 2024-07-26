@@ -76,6 +76,7 @@ body{
     height:87%;
     top:13%;
     background: -webkit-linear-gradient(#1574e8, #26b8dd);
+    z-index:-2;
 }
 #iPitch{ /*Like Github, But BETTER text*/
     position:absolute;
@@ -124,7 +125,10 @@ body{
     height:10%;
     left:42%;
     top:65%;
-    background:transparent;
+    background: -webkit-linear-gradient(#1574e8, #26b8dd);
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+    background-color:white;
     border:5px solid white;
     color:white;
     text-decoration:none;
@@ -136,8 +140,23 @@ body{
     font-size:40px;
     transition:0.1s all;
 }
+#iExploreButtonBackground{ /*White background for explore button*/
+    position:absolute;
+    width:15%;
+    height:10%;
+    left:42%;
+    top:65%;
+    background-color:white;
+    border-radius:20px;
+    border:5px solid white;
+    transition:0.1s all;
+    z-index:-1;
+}
 #iExploreButton:hover{
     cursor:pointer;
+    transform:scale(1.05);
+}
+#iExploreButton:hover + #iExploreButtonBackground{
     transform:scale(1.05);
 }
 
@@ -380,7 +399,7 @@ body{
     border-radius:15px;
     transition:0.1s all;
 }
-#pUpload:hover + #styleUpload{
+#pUpload:hover + #pStyleUpload{
     transform:scale(1.05);
     cursor:pointer;
 }
