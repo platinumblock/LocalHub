@@ -72,7 +72,7 @@ function iterUpload(files,i){ //Iteratively uploads each file one by one, with a
     reader.readAsText(file);
     reader.onload=onUpload;
     setTimeout(() => {
-        iter(clone,i+1);
+        iterUpload(clone,i+1);
       }, "500");
 }
 
